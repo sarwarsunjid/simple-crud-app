@@ -7,6 +7,7 @@ use App\Shop;
 
 class ShopController extends Controller
 {
+    //display data in index 
     public function index()
     {
         $shops = Shop::all();
@@ -14,11 +15,13 @@ class ShopController extends Controller
         return view('shop.index', compact('shops'));
     }
 
+    //create function
     public function create()
     {
         return view('shop.create');
     }
 
+    //store function for data
     public function store(Request $request)
     {
         $this->validate($request,[
@@ -39,6 +42,7 @@ class ShopController extends Controller
         return redirect()->back()->with('status','Shop Successfully Saved');
     }
 
+    //display shop 
     public function show($id)
     {
         $shop=Shop::find($id);
@@ -47,6 +51,7 @@ class ShopController extends Controller
 
     }
 
+    //modify shop
     public function edit($id)
     {
         $shop = Shop::where('id',$id)->first(); 
@@ -54,6 +59,7 @@ class ShopController extends Controller
         return view('shop.edit', compact('shop'));
     }
 
+    //update shop info
     public function update(Request $request, $id)
     {
         $this->validate($request,[
@@ -70,5 +76,12 @@ class ShopController extends Controller
         $shop->save();
 
         return redirect()->back()->with('status','Shop info updated');
+    }
+    
+    //delete function
+    public function delete($id){
+        $shop = Shop::find($id);
+        $shop->delete();
+        return back();
     }
 } 

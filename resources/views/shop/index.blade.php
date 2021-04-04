@@ -15,8 +15,8 @@
                     @endif
 
                     @foreach($shops as $shop)
-                    <li><a href="{{ url('show',$shop->id) }}">{{ $shop->name }}</a>-<a href="{{ url('edit',$shop->id) }}">Edit</a></li>
-                        @endforeach
+                    <li><a href="{{ url('show',$shop->id) }}">{{ $shop->name }}</a>-<a href="{{ url('edit',$shop->id) }}">Edit</a>-<a href="{{ url('delete',$shop->id) }}">Delete</a></li>
+                    @endforeach
                 </div>
             </div>
         </div>

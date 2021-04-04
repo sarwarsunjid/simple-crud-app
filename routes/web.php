@@ -30,3 +30,5 @@ Route::get('show/{id}', 'shopController@show');
 Route::get('edit/{id}', 'shopController@edit');
 
 Route::post('update/{id}', 'shopController@update');
+
+Route::get('delete/{id}', 'shopController@delete');
